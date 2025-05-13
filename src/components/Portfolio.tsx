@@ -1,9 +1,7 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, X, Maximize, Image, Video, ChevronLeft, ChevronRight, Heart, MessageSquare, Eye } from 'lucide-react';
+import { X, Video, ChevronLeft, ChevronRight, Heart, MessageSquare, Eye } from 'lucide-react';
 import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 
 interface MediaItem {
@@ -200,17 +198,13 @@ const dummyProjects: Project[] = [
   }
 ];
 
-const categories = ["All", "Photography", "Food", "Travel", "Architecture", "Fashion"];
-
 const Portfolio: React.FC = () => {
   const titleRef = useRef<HTMLDivElement>(null);
   const [projects, setProjects] = useState<Project[]>(dummyProjects);
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(dummyProjects);
   const [loading, setLoading] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedMediaIndex, setSelectedMediaIndex] = useState<number>(0);
   const [layout, setLayout] = useState<'grid' | 'masonry'>('grid');
-  const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -243,15 +237,7 @@ const Portfolio: React.FC = () => {
         observer.unobserve(element);
       });
     };
-  }, [filteredProjects]);
-
-  useEffect(() => {
-    if (activeCategory === "All") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter(project => project.category === activeCategory));
-    }
-  }, [activeCategory, projects]);
+  }, [projects]);
 
   const openProject = (project: Project, mediaIndex: number = 0) => {
     setSelectedProject(project);
@@ -273,10 +259,6 @@ const Portfolio: React.FC = () => {
     }
   };
 
-  const filteredByCategory = (category: string) => {
-    setActiveCategory(category);
-  };
-
   return (
     <section id="work" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -292,49 +274,6 @@ const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        <div className="mb-8 flex justify-between items-center">
-          <div className="flex overflow-x-auto pb-2 md:pb-0 space-x-2 md:space-x-4">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={activeCategory === category ? "default" : "outline"}
-                className={cn(
-                  "rounded-full px-4 py-2 text-sm transition-all",
-                  activeCategory === category 
-                    ? "bg-[#ff4c00] hover:bg-[#ff4c00]/90 text-white" 
-                    : "hover:bg-[#ff4c00]/10 text-gray-700"
-                )}
-                onClick={() => filteredByCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-          
-          <div className="hidden md:flex space-x-2">
-            <Button
-              variant={layout === 'grid' ? "default" : "outline"}
-              className={cn(
-                "rounded-md px-3 py-2 text-sm",
-                layout === 'grid' ? "bg-[#ff4c00] hover:bg-[#ff4c00]/90 text-white" : ""
-              )}
-              onClick={() => setLayout('grid')}
-            >
-              Grid
-            </Button>
-            <Button
-              variant={layout === 'masonry' ? "default" : "outline"}
-              className={cn(
-                "rounded-md px-3 py-2 text-sm",
-                layout === 'masonry' ? "bg-[#ff4c00] hover:bg-[#ff4c00]/90 text-white" : ""
-              )}
-              onClick={() => setLayout('masonry')}
-            >
-              Masonry
-            </Button>
-          </div>
-        </div>
-
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ff4c00]"></div>
@@ -346,7 +285,7 @@ const Portfolio: React.FC = () => {
               ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" 
               : "columns-1 md:columns-2 lg:columns-3 space-y-6"
           )}>
-            {filteredProjects.map((project) => (
+            {projects.map((project) => (
               <div 
                 key={project.id} 
                 className={cn(

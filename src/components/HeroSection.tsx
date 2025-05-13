@@ -15,7 +15,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           style={{ filter: 'brightness(0.6)' }}
         >
-          <source src="https://player.vimeo.com/external/539043646.hd.mp4?s=eb9ac1411934cedaf26da3de6b02191779dda3c7&profile_id=175&oauth2_token_id=57447761" type="video/mp4" />
+          <source src="https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_VIDEO_ID" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

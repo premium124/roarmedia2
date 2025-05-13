@@ -68,14 +68,6 @@ const ContactSection = () => {
                 <p className="text-gray-700 mb-6">
                   Let our experts help you craft a content strategy that converts.
                 </p>
-                <div className="flex justify-center space-x-4">
-                  <a href="tel:+919876543210" className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 text-white px-6 py-3 rounded-md font-medium transition-colors">
-                    Call Now
-                  </a>
-                  <a href="mailto:hello@roarmedia.com" className="bg-white border border-[#ff4c00] text-[#ff4c00] hover:bg-[#ff4c00]/5 px-6 py-3 rounded-md font-medium transition-colors">
-                    Email Us
-                  </a>
-                </div>
               </div>
             </div>
           </div>
