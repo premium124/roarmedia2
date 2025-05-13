@@ -15,16 +15,13 @@ const HeroSection = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background video */}
       <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          loop 
-          muted 
+        <iframe 
+          src="https://drive.google.com/file/d/1V9mAVl6MC2MYFR5hg87WjSrd_h6LuzXH/preview"
           className="w-full h-full object-cover"
           style={{ filter: 'brightness(0.6)' }}
-        >
-          <source src="https://drive.google.com/uc?export=download&id=1V9mAVl6MC2MYFR5hg87WjSrd_h6LuzXH" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          allow="autoplay" 
+          allowFullScreen
+        ></iframe>
       </div>
       
       {/* Content overlay */}

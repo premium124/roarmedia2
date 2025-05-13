@@ -18,6 +18,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -53,7 +60,7 @@ const Header = () => {
                     <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Our Work</a>
                     <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Pricing</a>
                     <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Contact</a>
-                    <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 mt-4">Get in Touch</Button>
+                    <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 mt-4" onClick={scrollToContact}>Get in Touch</Button>
                   </nav>
                 </div>
               )}
@@ -67,7 +74,7 @@ const Header = () => {
                 <a href="#" className="font-medium text-white hover:text-[#ff4c00]">Pricing</a>
                 <a href="#" className="font-medium text-white hover:text-[#ff4c00]">Contact</a>
               </nav>
-              <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90">Get in Touch</Button>
+              <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90" onClick={scrollToContact}>Get in Touch</Button>
             </>
           )}
         </div>
