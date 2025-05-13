@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services-section');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background video */}
@@ -15,7 +22,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           style={{ filter: 'brightness(0.6)' }}
         >
-          <source src="https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_VIDEO_ID" type="video/mp4" />
+          <source src="https://drive.google.com/uc?export=download&id=1V9mAVl6MC2MYFR5hg87WjSrd_h6LuzXH" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -41,7 +48,10 @@ const HeroSection = () => {
           ))}
         </div>
         
-        <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 text-white px-8 py-6 h-auto text-lg font-medium rounded-md">
+        <Button 
+          className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 text-white px-8 py-6 h-auto text-lg font-medium rounded-md"
+          onClick={scrollToServices}
+        >
           Let's Talk Strategy <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </div>
