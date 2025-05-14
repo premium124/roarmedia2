@@ -30,8 +30,10 @@ const Index = () => {
       {/* Portfolio Section */}
       <Portfolio />
       
-      {/* Testimonials Section */}
-      <TestimonialsSection />
+      {/* Testimonials Section - Removing the gap by changing margin/padding */}
+      <div className="-mt-10">
+        <TestimonialsSection />
+      </div>
       
       {/* Brands Section */}
       <BrandsSection />

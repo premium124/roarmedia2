@@ -8,18 +8,18 @@ interface Brand {
   image: string;
 }
 
-// These are placeholder images that should be replaced with local images
+// Dummy brand data with logo placeholder images from Unsplash
 const brands: Brand[] = [
-  { id: 1, name: "TechCorp", image: "/brands/brand1.png" },
-  { id: 2, name: "Innovate Labs", image: "/brands/brand2.png" },
-  { id: 3, name: "Fusion Media", image: "/brands/brand3.png" },
-  { id: 4, name: "Apex Design", image: "/brands/brand4.png" },
-  { id: 5, name: "Echo Studios", image: "/brands/brand5.png" },
-  { id: 6, name: "Vertex Group", image: "/brands/brand6.png" },
-  { id: 7, name: "Pulse Dynamics", image: "/brands/brand7.png" },
-  { id: 8, name: "Horizon Enterprises", image: "/brands/brand8.png" },
-  { id: 9, name: "Quantum Solutions", image: "/brands/brand9.png" },
-  { id: 10, name: "Nebula Networks", image: "/brands/brand10.png" }
+  { id: 1, name: "TechCorp", image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300&fit=crop&q=80" },
+  { id: 2, name: "Innovate Labs", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&fit=crop&q=80" },
+  { id: 3, name: "Fusion Media", image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&fit=crop&q=80" },
+  { id: 4, name: "Apex Design", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&fit=crop&q=80" },
+  { id: 5, name: "Echo Studios", image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=300&fit=crop&q=80" },
+  { id: 6, name: "Vertex Group", image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=300&fit=crop&q=80" },
+  { id: 7, name: "Pulse Dynamics", image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300&fit=crop&q=80" },
+  { id: 8, name: "Horizon Enterprises", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&fit=crop&q=80" },
+  { id: 9, name: "Quantum Solutions", image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&fit=crop&q=80" },
+  { id: 10, name: "Nebula Networks", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&fit=crop&q=80" }
 ];
 
 const BrandsSection = () => {
@@ -49,11 +49,9 @@ const BrandsSection = () => {
               }}
             >
               <AspectRatio ratio={3/2} className="bg-gray-50 p-4 rounded-lg flex items-center justify-center">
-                {/* Replace with actual brand logos when available */}
                 <div className="w-full h-full flex items-center justify-center">
-                  {/* This is a placeholder. Replace with actual image */}
                   <img 
-                    src={`https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&fit=crop&q=80`} 
+                    src={brand.image} 
                     alt={brand.name}
                     className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                   />
