@@ -18,10 +18,11 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      if (menuOpen) setMenuOpen(false);
     }
   };
 
@@ -55,12 +56,11 @@ const Header = () => {
               {menuOpen && (
                 <div className="fixed inset-0 top-16 bg-black z-40 p-4">
                   <nav className="flex flex-col space-y-4">
-                    <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">About</a>
-                    <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Services</a>
-                    <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Our Work</a>
-                    <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Pricing</a>
-                    <a href="#" className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10">Contact</a>
-                    <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 mt-4" onClick={scrollToContact}>Get in Touch</Button>
+                    <a onClick={() => scrollToSection('about-section')} className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10 cursor-pointer">About</a>
+                    <a onClick={() => scrollToSection('services-section')} className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10 cursor-pointer">Services</a>
+                    <a onClick={() => scrollToSection('work')} className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10 cursor-pointer">Our Work</a>
+                    <a onClick={() => scrollToSection('contact-section')} className="text-lg font-medium text-white hover:text-[#ff4c00] py-2 border-b border-white/10 cursor-pointer">Contact</a>
+                    <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90 mt-4" onClick={() => scrollToSection('contact-section')}>Get in Touch</Button>
                   </nav>
                 </div>
               )}
@@ -68,13 +68,12 @@ const Header = () => {
           ) : (
             <>
               <nav className="hidden md:flex space-x-6">
-                <a href="#" className="font-medium text-white hover:text-[#ff4c00]">About</a>
-                <a href="#" className="font-medium text-white hover:text-[#ff4c00]">Services</a>
-                <a href="#" className="font-medium text-white hover:text-[#ff4c00]">Our Work</a>
-                <a href="#" className="font-medium text-white hover:text-[#ff4c00]">Pricing</a>
-                <a href="#" className="font-medium text-white hover:text-[#ff4c00]">Contact</a>
+                <a onClick={() => scrollToSection('about-section')} className="font-medium text-white hover:text-[#ff4c00] cursor-pointer">About</a>
+                <a onClick={() => scrollToSection('services-section')} className="font-medium text-white hover:text-[#ff4c00] cursor-pointer">Services</a>
+                <a onClick={() => scrollToSection('work')} className="font-medium text-white hover:text-[#ff4c00] cursor-pointer">Our Work</a>
+                <a onClick={() => scrollToSection('contact-section')} className="font-medium text-white hover:text-[#ff4c00] cursor-pointer">Contact</a>
               </nav>
-              <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90" onClick={scrollToContact}>Get in Touch</Button>
+              <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90" onClick={() => scrollToSection('contact-section')}>Get in Touch</Button>
             </>
           )}
         </div>

@@ -52,6 +52,13 @@ const ServicesSection = () => {
     }
   ];
 
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById('work');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services-section" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -90,7 +97,7 @@ const ServicesSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90">
+          <Button className="bg-[#ff4c00] hover:bg-[#ff4c00]/90" onClick={scrollToPortfolio}>
             See Our Work <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>

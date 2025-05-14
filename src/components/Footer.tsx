@@ -2,6 +2,13 @@
 import React from 'react';
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-4">
@@ -42,22 +49,21 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Services</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Our Work</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><a onClick={() => scrollToSection('about-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">About Us</a></li>
+              <li><a onClick={() => scrollToSection('services-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Services</a></li>
+              <li><a onClick={() => scrollToSection('work')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Our Work</a></li>
+              <li><a onClick={() => scrollToSection('contact-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Contact</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-bold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Automobile Marketing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Food & Beverage</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Real Estate</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Fashion & Lifestyle</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Educational Content</a></li>
+              <li><a onClick={() => scrollToSection('services-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Automobile Marketing</a></li>
+              <li><a onClick={() => scrollToSection('services-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Food & Beverage</a></li>
+              <li><a onClick={() => scrollToSection('services-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Real Estate</a></li>
+              <li><a onClick={() => scrollToSection('services-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Fashion & Lifestyle</a></li>
+              <li><a onClick={() => scrollToSection('services-section')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Educational Content</a></li>
             </ul>
           </div>
         </div>
