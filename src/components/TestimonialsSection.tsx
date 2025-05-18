@@ -52,6 +52,19 @@ const testimonials: Testimonial[] = [
 
 const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -62,16 +75,16 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
           <div className="inline-block mb-4 px-3 py-1 bg-[#ff4c00]/10 border border-[#ff4c00]/30 rounded-full">
             <p className="text-[#ff4c00] text-sm font-medium">What Clients Say</p>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6 text-black">
             Client Testimonials
           </h2>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-base md:text-lg">
             Hear what our satisfied clients have to say about their experience working with us
           </p>
         </div>
@@ -80,18 +93,18 @@ const TestimonialsSection = () => {
           <Carousel className="w-full">
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={testimonial.id} className={index === activeIndex ? 'block' : 'hidden'}>
+                <CarouselItem key={testimonial.id} className={index === activeIndex ? "block" : "hidden"}>
                   <Card className="border-none shadow-lg">
-                    <CardContent className="p-8 md:p-12">
+                    <CardContent className="p-4 md:p-8 lg:p-12">
                       <div className="flex flex-col items-center text-center">
-                        <Quote className="h-10 w-10 text-[#ff4c00] mb-6" />
+                        <Quote className="h-8 w-8 md:h-10 md:w-10 text-[#ff4c00] mb-4 md:mb-6" />
                         
-                        <blockquote className="mb-6">
-                          <p className="text-xl md:text-2xl italic text-gray-700 mb-6">"{testimonial.quote}"</p>
+                        <blockquote className="mb-4 md:mb-6">
+                          <p className="text-lg md:text-xl lg:text-2xl italic text-gray-700 mb-4 md:mb-6">"{testimonial.quote}"</p>
                         </blockquote>
                         
                         <div>
-                          <p className="font-bold text-lg text-black">{testimonial.name}</p>
+                          <p className="font-bold text-base md:text-lg text-black">{testimonial.name}</p>
                           <p className="text-gray-600">{testimonial.role}</p>
                         </div>
                       </div>
@@ -102,13 +115,13 @@ const TestimonialsSection = () => {
             </CarouselContent>
           </Carousel>
 
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-4 md:mt-6">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? "w-8 bg-[#ff4c00]" : "w-2 bg-gray-300"
+                  index === activeIndex ? "w-6 md:w-8 bg-[#ff4c00]" : "w-2 bg-gray-300"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

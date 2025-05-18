@@ -24,31 +24,31 @@ const brands: Brand[] = [
 
 const BrandsSection = () => {
   return (
-    <section className="py-16 bg-white" id="brands">
+    <section className="py-10 sm:py-12 md:py-16 bg-white" id="brands">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-          <div className="inline-block mb-4 px-3 py-1 bg-[#ff4c00]/10 border border-[#ff4c00]/30 rounded-full">
-            <p className="text-[#ff4c00] text-sm font-medium">Trusted Partners</p>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+          <div className="inline-block mb-3 sm:mb-4 px-3 py-1 bg-[#ff4c00]/10 border border-[#ff4c00]/30 rounded-full">
+            <p className="text-[#ff4c00] text-xs sm:text-sm font-medium">Trusted Partners</p>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-black">
             Brands We've Worked With
           </h2>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-sm sm:text-base md:text-lg">
             Proud to have collaborated with these amazing companies
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
           {brands.map((brand) => (
             <div 
               key={brand.id} 
-              className="opacity-0 animate-fade-in w-full max-w-[180px]"
+              className="opacity-0 animate-fade-in w-full max-w-[120px] sm:max-w-[150px] md:max-w-[180px]"
               style={{ 
                 animationDelay: `${0.1 * brand.id}s`,
                 animationFillMode: 'forwards'
               }}
             >
-              <AspectRatio ratio={3/2} className="bg-gray-50 p-4 rounded-lg flex items-center justify-center">
+              <AspectRatio ratio={3/2} className="bg-gray-50 p-2 sm:p-3 md:p-4 rounded-lg flex items-center justify-center">
                 <div className="w-full h-full flex items-center justify-center">
                   <img 
                     src={brand.image} 
@@ -61,8 +61,8 @@ const BrandsSection = () => {
           ))}
         </div>
         
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">Want to be featured here? <a href="#contact" className="text-[#ff4c00] hover:underline">Contact us today</a></p>
+        <div className="mt-8 sm:mt-10 md:mt-12 text-center">
+          <p className="text-gray-600 text-sm sm:text-base">Want to be featured here? <a href="#contact" className="text-[#ff4c00] hover:underline">Contact us today</a></p>
         </div>
       </div>
     </section>
