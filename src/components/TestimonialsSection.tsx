@@ -2,14 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { Avatar } from '@/components/ui/avatar';
+import { Quote } from 'lucide-react';
 
 interface Testimonial {
   id: number;
   name: string;
   role: string;
   company: string;
-  avatar: string;
   quote: string;
 }
 
@@ -19,7 +18,6 @@ const testimonials: Testimonial[] = [
     name: "Sarah Johnson",
     role: "Marketing Director",
     company: "Elevate Digital",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256",
     quote: "The photography work exceeded all our expectations. Our campaign saw a 40% increase in engagement thanks to the stunning visuals delivered."
   },
   {
@@ -27,7 +25,6 @@ const testimonials: Testimonial[] = [
     name: "Michael Chen",
     role: "Creative Lead",
     company: "Artisan Studios",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=256",
     quote: "Working with this team has transformed our brand identity. The attention to detail and artistic vision brought our concepts to life perfectly."
   },
   {
@@ -35,7 +32,6 @@ const testimonials: Testimonial[] = [
     name: "Amelia Rodriguez",
     role: "CEO",
     company: "Fusion Restaurants",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=256",
     quote: "Our food photography has never looked so appetizing. Since our menu rebrand, we've noticed customers ordering more items they see in our promotional materials."
   },
   {
@@ -43,7 +39,6 @@ const testimonials: Testimonial[] = [
     name: "Daniel Thompson",
     role: "Product Manager",
     company: "Nexus Technologies",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256",
     quote: "The product shots were stunning and helped us achieve a record-breaking product launch. Professional, timely, and creative throughout the entire process."
   },
   {
@@ -51,7 +46,6 @@ const testimonials: Testimonial[] = [
     name: "Olivia Williams",
     role: "Event Coordinator",
     company: "Stellar Events",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256",
     quote: "Our charity gala was captured beautifully. The photos truly conveyed the emotion and impact of the evening, helping us raise even more for next year's event."
   }
 ];
@@ -90,9 +84,7 @@ const TestimonialsSection = () => {
                   <Card className="border-none shadow-lg">
                     <CardContent className="p-8 md:p-12">
                       <div className="flex flex-col items-center text-center">
-                        <Avatar className="h-20 w-20 mb-6 border-4 border-white shadow-md">
-                          <img src={testimonial.avatar} alt={testimonial.name} className="object-cover" />
-                        </Avatar>
+                        <Quote className="h-10 w-10 text-[#ff4c00] mb-6" />
                         
                         <blockquote className="mb-6">
                           <p className="text-xl md:text-2xl italic text-gray-700 mb-6">"{testimonial.quote}"</p>
