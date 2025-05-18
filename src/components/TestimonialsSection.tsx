@@ -8,7 +8,7 @@ interface Testimonial {
   id: number;
   name: string;
   role: string;
-  company: string;
+  company: string; // Keeping in the interface for data structure, but won't display it
   quote: string;
 }
 
@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
                         
                         <div>
                           <p className="font-bold text-lg text-black">{testimonial.name}</p>
-                          <p className="text-gray-600">{testimonial.role}, {testimonial.company}</p>
+                          <p className="text-gray-600">{testimonial.role}</p>
                         </div>
                       </div>
                     </CardContent>
