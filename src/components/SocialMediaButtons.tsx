@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Whatsapp } from 'lucide-react';
+import { Instagram, MessageCircle } from 'lucide-react';
 
 const SocialMediaButtons = () => {
   const openWhatsApp = () => {
@@ -30,7 +30,7 @@ const SocialMediaButtons = () => {
         className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         aria-label="WhatsApp"
       >
-        <Whatsapp className="text-white w-6 h-6" />
+        <MessageCircle className="text-white w-6 h-6" />
       </button>
     </div>
   );
