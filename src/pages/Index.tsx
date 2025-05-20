@@ -9,6 +9,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import BrandsSection from '@/components/BrandsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import SocialMediaButtons from '@/components/SocialMediaButtons';
 
 const Index = () => {
   return (
@@ -43,6 +44,9 @@ const Index = () => {
       
       {/* Footer */}
       <Footer />
+      
+      {/* Social Media Buttons */}
+      <SocialMediaButtons />
     </div>
   );
 };
